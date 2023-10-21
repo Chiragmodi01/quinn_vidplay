@@ -23,8 +23,11 @@ const Video = ({video}) => {
     }
 
     const handleProgress = (progress) => {
+      console.log('progressing...')
       if (videoToEdit.resultObj && progress.playedSeconds >= Number(videoToEdit.resultObj.start_time) + Number(videoToEdit.resultObj.duration)) {
-        playerRef.current.pause(); // Pause the video
+        playerRef.current.pause();
+        setPlaying(false) // Pause the video
+        playerRef.current.seekTo(videoToEdit.resultObj.start_time, 'seconds');
       }
     };
 
