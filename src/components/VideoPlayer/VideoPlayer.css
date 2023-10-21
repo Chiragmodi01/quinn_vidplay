@@ -85,3 +85,12 @@ button {
     align-items: center;
     justify-content: center;
 }
+
+@media screen and (max-width: 600px) {
+    .react-player {
+        width: 100vw !important;
+    }
+    .react-player video {
+        width: 100% !important;
+    }
+}
