@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Video.css'
 import ReactPlayer from "react-player/lazy";
 import { useMain } from '../../helpers/context/main-context';
@@ -11,19 +11,29 @@ const Video = ({video}) => {
     const playerRef = useRef(null);
     const {setVideoToEdit, videoToEdit} = useMain();
 
-    console.log(video)
+    console.log(playing)
 
     const handleOnVideoClick = () => {
       setVideoToEdit(video);
       navigate('/editor');
     }
 
-    const handleOnReady=()=>{
+    const handleOnReady = () => {
       videoToEdit.resultObj && playerRef.current.seekTo(videoToEdit.resultObj.start_time, 'seconds');
     }
 
+    const handleProgress = (progress) => {
+      if (videoToEdit.resultObj && progress.playedSeconds >= Number(videoToEdit.resultObj.start_time) + Number(videoToEdit.resultObj.duration)) {
+        playerRef.current.pause(); // Pause the video
+      }
+    };
+
+    useEffect(() => {
+      setPlaying(false)
+    }, [])
+
   return (
-    <div className='video-container'>
+    <div className='video-container video'>
         <ReactPlayer
             onMouseOver={() => setPlaying(true)}
             onMouseOut={() => setPlaying(false)}
@@ -39,6 +49,7 @@ const Video = ({video}) => {
             playing={playing}
             volume={0}
             controls={false}
+            onProgress={handleProgress}
         />
     </div>
   )

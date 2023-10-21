@@ -1,13 +1,19 @@
-.video-container {
+.video-container.video{
     padding: 25px 0;
     padding-bottom: 0;
+    height: 28rem;
+    width: 18rem;
 }
 .video-container .react-player video {
     object-fit: cover;
     height: 100%;
     width: 100%;
 }
-
+.react-player.video video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
 .video-container .react-player video:hover {
     box-shadow: 0 0 10px 2px hsla(0,0%,100%,.08);
 }

@@ -21,7 +21,6 @@ const Navbar = () => {
               name: file.name,
             };
             setVideosArr((prevVideos) => [...prevVideos, videoObject]);
-            alert(videoObject.name +'  ' + 'Uploaded!')
         }
     }
 

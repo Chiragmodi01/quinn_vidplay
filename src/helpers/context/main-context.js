@@ -9,6 +9,13 @@ function MainProvider({ children }) {
     console.log(videosArr)
 
     useEffect(() => {
+      if('videosArr' in localStorage) {
+        const cachedVideos = localStorage.getItem('videosArr');
+        setVideosArr(JSON.parse(cachedVideos))
+      }
+    }, [])
+
+    useEffect(() => {
       console.log(videosArr, videoToEdit)
       const index = videosArr.findIndex(video => video.id === videoToEdit.id);
       if (index !== -1) {
@@ -17,6 +24,12 @@ function MainProvider({ children }) {
         setVideosArr(updatedVideos);
       }
     }, [videoToEdit])
+
+    useEffect(() => {
+      videosArr.length >0 && localStorage.setItem('videosArr', JSON.stringify(videosArr))
+    }, [videosArr, localStorage])
+
+
       return (
         <MainContext.Provider value={{videoToEdit, setVideoToEdit, videosArr, setVideosArr}}>
             {children}
