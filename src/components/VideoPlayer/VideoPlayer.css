@@ -91,6 +91,9 @@ button {
         width: 100vw !important;
         height: 30vh !important;
     }
+    .drag-container input {
+        width: 15rem !important;
+    }
     .react-player video {
         width: 100% !important;
     }
