@@ -23,7 +23,7 @@ function MainProvider({ children }) {
         updatedVideos[index] = videoToEdit;
         setVideosArr(updatedVideos);
       }
-    }, [videoToEdit])
+    }, [videoToEdit, videosArr])
 
     useEffect(() => {
       videosArr.length >0 && localStorage.setItem('videosArr', JSON.stringify(videosArr))
