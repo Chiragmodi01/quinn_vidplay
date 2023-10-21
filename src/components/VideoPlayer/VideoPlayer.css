@@ -1,0 +1,87 @@
+.video-player {
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    height: 100%;
+    margin: auto;
+    box-sizing: border-box;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.info {
+    font-size: 11px;
+    margin-bottom: 2px;
+    padding-left: 7px;
+    text-align: left;
+    opacity: 70%;
+}
+video, .video-container, .ReactCrop {
+    border-radius: 10px;
+}
+.controls button {
+    background-color: transparent;
+    border: none;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.finish-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.drag-container p {
+    font-size: 14px;
+}
+.drag-container input {
+    width: 18rem;
+    height: 3px;
+    margin: 1rem 0;
+}
+.duration-input-container {
+    margin-top: 1rem;
+}
+section.right button {
+    margin-top: 1.5rem;
+    color: white;
+    padding: 10px 50px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background: hsla(0,0%,100%,.068);
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid white;
+    outline: none;
+}
+section.right button:hover {
+    background: hsla(0, 0%, 100%, 0.267);
+}
+section.right .duration-input-container input {
+    width: 4rem;
+    height: 4vh;
+}
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+section.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    height: 100%;
+}
+button {
+    cursor: pointer;
+}
+.video-fallback {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background: hsla(0,0%,100%,.068);
+    height: 50vh;
+    width: 70vw;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
