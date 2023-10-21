@@ -28,7 +28,7 @@ const Video = () => {
 	};
 
 	const handleOnSliderRelease = () => {
-		const currVideoDuration = playerRef.current.seekTo(playProgress, "seconds");
+		playerRef.current.seekTo(playProgress, "seconds");
 	};
 
 	const handleOnSliderChange = (e) => {
