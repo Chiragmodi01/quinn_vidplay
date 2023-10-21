@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import './Navbar.css';
 import {Home} from '@styled-icons/entypo/Home';
 import {VideoAdd} from '@styled-icons/fluentui-system-regular/VideoAdd'
