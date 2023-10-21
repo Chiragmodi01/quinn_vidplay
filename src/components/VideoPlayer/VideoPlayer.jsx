@@ -44,7 +44,7 @@ const Video = () => {
 		setReadyToPlay((prev) => !prev);
 	};
 
-	const handleFinishEditing = () => {
+	const handleFinishEditing = (e) => {
 		resultObj["start_time"] = playProgress;
 		resultObj["duration"] = cropDuration;
 		resultObj["mediaid"] = "wildlifeBear";
@@ -52,6 +52,10 @@ const Video = () => {
 		if (crop) {
 			resultObj["crop"] = crop;
 		}
+		e.target.innerText = 'Check Console'
+		setTimeout(() => {
+			e.target.innerText = 'Finish Editing'
+		}, 2000)
 		console.log(resultObj);
 	};
 
@@ -144,7 +148,7 @@ const Video = () => {
 						(s)
 					</div>
 					<div className="finish-btn-container">
-						<button onClick={handleFinishEditing}>Finish Editing</button>
+						<button onClick={(e) => handleFinishEditing(e)}>Finish Editing</button>
 					</div>
 				</div>
 			</section>
