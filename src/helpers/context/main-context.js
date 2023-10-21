@@ -27,7 +27,7 @@ function MainProvider({ children }) {
 
     useEffect(() => {
       videosArr.length >0 && localStorage.setItem('videosArr', JSON.stringify(videosArr))
-    }, [videosArr, localStorage])
+    }, [videosArr])
 
 
       return (

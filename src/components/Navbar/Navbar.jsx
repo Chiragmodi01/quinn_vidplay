@@ -6,8 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useMain } from '../../helpers/context/main-context';
 
 const Navbar = () => {
-    const [uploadedVideo, setUploadedVideo] = useState(null);
-    const {videosArr, setVideosArr} = useMain();
+    const {setVideosArr} = useMain();
     let addVideoInputRef = useRef(null)
 
     let navigate = useNavigate();
