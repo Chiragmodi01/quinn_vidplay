@@ -16,7 +16,6 @@ function MainProvider({ children }) {
     }, [])
 
     useEffect(() => {
-      console.log(videosArr, videoToEdit)
       const index = videosArr.findIndex(video => video.id === videoToEdit.id);
       if (index !== -1) {
         const updatedVideos = [...videosArr];

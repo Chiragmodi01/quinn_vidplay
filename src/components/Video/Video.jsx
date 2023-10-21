@@ -11,7 +11,15 @@ const Video = ({video}) => {
     const playerRef = useRef(null);
     const {setVideoToEdit, videoToEdit} = useMain();
 
-    console.log(playing)
+    const xPosition = 100; // X position of the frame
+    const yPosition = 50; // Y position of the frame
+    const frameWidth = 200; // Width of the frame
+    const frameHeight = 150; // Height of the frame
+  
+    const clipPathValue = `inset(${yPosition}px ${window.innerWidth - (xPosition + frameWidth)}px ${
+      window.innerHeight - (yPosition + frameHeight)
+    }px ${xPosition}px)`;
+  
 
     const handleOnVideoClick = () => {
       setVideoToEdit(video);
@@ -23,7 +31,6 @@ const Video = ({video}) => {
     }
 
     const handleProgress = (progress) => {
-      console.log('progressing...')
       if (videoToEdit.resultObj && progress.playedSeconds >= Number(videoToEdit.resultObj.start_time) + Number(videoToEdit.resultObj.duration)) {
         playerRef.current.pause();
         setPlaying(false) // Pause the video
@@ -36,7 +43,7 @@ const Video = ({video}) => {
     }, [])
 
   return (
-    <div className='video-container video'>
+    <div className='video-container video' >
         <ReactPlayer
             onMouseOver={() => setPlaying(true)}
             onMouseOut={() => setPlaying(false)}
