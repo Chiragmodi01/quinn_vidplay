@@ -12,7 +12,7 @@ const VideoGallary = () => {
           {
             videosArr.map((video) => {
               // return [...Object.values(video)].sort((a, b) => a.id - b.id).map((item) => {
-                const {id, file} = video || {}
+                const {id} = video || {}
                 return (
                   <Video video={video} key={id} />
                 )
