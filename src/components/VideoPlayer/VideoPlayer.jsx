@@ -3,11 +3,12 @@ import ReactPlayer from "react-player/lazy";
 import ReactCrop from "react-image-crop";
 import { PlayCircle } from "@styled-icons/bootstrap/PlayCircle";
 import { PauseCircle } from "@styled-icons/bootstrap/PauseCircle";
-import wildlifeBear from "../../assets/wildlife_bear.mp4";
 import "react-image-crop/dist/ReactCrop.css";
 import "./VideoPlayer.css";
+import { useMain } from "../../helpers/context/main-context";
+import { useNavigate } from "react-router-dom";
 
-const Video = () => {
+const VideoPlayer = () => {
 	const [playing, setPlaying] = useState(false);
 	const [readyToPlay, setReadyToPlay] = useState(false);
 	const [duration, setDuration] = useState(0);
@@ -16,6 +17,8 @@ const Video = () => {
 	const [crop, setCrop] = useState(null);
 	let resultObj = {};
 	const playerRef = useRef(null);
+	let navigate = useNavigate();
+	const {videoToEdit, setVideoToEdit} = useMain();
 
 	const handlePlayPause = () => {
 		setPlaying((prev) => !prev);
@@ -47,15 +50,17 @@ const Video = () => {
 	const handleFinishEditing = (e) => {
 		resultObj["start_time"] = playProgress;
 		resultObj["duration"] = cropDuration;
-		resultObj["mediaid"] = "wildlifeBear";
+		resultObj["id"] = "wildlifeBear";
 		resultObj["crop"] = "null";
 		if (crop) {
 			resultObj["crop"] = crop;
 		}
+		setVideoToEdit({...videoToEdit, 'resultObj' : resultObj});
 		e.target.innerText = 'Check Console'
 		setTimeout(() => {
 			e.target.innerText = 'Finish Editing'
-		}, 2000)
+			navigate('/')
+		}, 1500)
 		console.log(resultObj);
 	};
 
@@ -79,9 +84,6 @@ const Video = () => {
 
 	return (
 		<div className="video-player">
-			<span className="info">
-				* hover over the video and select the area to crop
-			</span>
 			<section className="left">
 				<div className="video-container">
 					<ReactCrop crop={crop} onChange={(c) => setCrop(c)}>
@@ -89,7 +91,7 @@ const Video = () => {
 							fallback={<VideoFallback />}
 							className="react-player"
 							ref={playerRef}
-							url={wildlifeBear}
+							url={videoToEdit.file}
 							muted={true}
 							width="auto"
 							height="50vh"
@@ -162,4 +164,4 @@ const VideoFallback = () => {
 	)
 }
 
-export default Video;
+export default VideoPlayer;

@@ -9,11 +9,16 @@ body {
   background-size: cover;
   box-sizing: border-box;
   height: 100vh;
-  overflow: hidden;
-  padding: 20px 10px;
+  overflow-x: hidden;
   text-align: center;
   background: url(/src/assets/AppBg.jpg);
   background-color: teal;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+button {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {

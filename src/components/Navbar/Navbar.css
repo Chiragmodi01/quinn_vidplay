@@ -1,0 +1,28 @@
+.navbar-container {
+    width: 100%;
+    box-sizing: border-box;
+    color: white;
+    background-color: teal;
+    padding:5px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.brand-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+.icon-home, label {
+    cursor: pointer;
+}
+input[type="file"] {
+    display: none;
+}
+.btn-add-video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}

@@ -71,9 +71,6 @@ section.right {
     text-align: left;
     height: 100%;
 }
-button {
-    cursor: pointer;
-}
 .video-fallback {
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
