@@ -89,7 +89,7 @@ button {
 @media screen and (max-width: 600px) {
     .react-player {
         width: 100vw !important;
-        height: 30vh;
+        height: 30vh !important;
     }
     .react-player video {
         width: 100% !important;
